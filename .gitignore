@@ -1,0 +1,15 @@
+# Build outputs
+build/
+*.o
+/mygit
+
+# Local test/demo artifacts
+.mygit/
+.mygitignore
+demo_repo/
+
+# OS & editor files
+.DS_Store
+*.swp
+.vscode/
+.idea/

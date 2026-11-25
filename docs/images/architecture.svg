@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-label="MyGit C++17 Architecture and Content-Addressable Object Model">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d1117"/>
+      <stop offset="100%" stop-color="#161b22"/>
+    </linearGradient>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1f6feb"/>
+      <stop offset="100%" stop-color="#388bfd"/>
+    </linearGradient>
+    <linearGradient id="coreGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#238636"/>
+      <stop offset="100%" stop-color="#2ea043"/>
+    </linearGradient>
+    <linearGradient id="storeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8957e5"/>
+      <stop offset="100%" stop-color="#a371f7"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#8b949e"/>
+    </marker>
+    <style>
+      .title { font: 700 22px -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: #f0f6fc; }
+      .subtitle { font: 400 13px -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: #8b949e; }
+      .sec-label { font: 700 11px -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; letter-spacing: 1px; fill: #8b949e; text-transform: uppercase; }
+      .box-title { font: 700 14px -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: #f0f6fc; }
+      .box-sub { font: 400 11.5px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c9d1d9; }
+      .pill { font: 600 11px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #f0f6fc; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="520" rx="14" fill="url(#bgGrad)" stroke="#30363d" stroke-width="1.5"/>
+
+  <!-- Title Banner -->
+  <text x="36" y="44" class="title">MyGit — Modular C++17 Architecture &amp; Object Pipeline</text>
+  <text x="36" y="66" class="subtitle">Content-addressable storage (SHA-1 + zlib), staging index, hierarchical Merkle trees, and LCS unified diff</text>
+
+  <!-- Layer 1: CLI & Presentation -->
+  <text x="36" y="102" class="sec-label">1. CLI &amp; Presentation Layer</text>
+  <rect x="36" y="112" width="420" height="68" rx="10" fill="#161b22" stroke="#388bfd" stroke-width="1.5"/>
+  <rect x="36" y="112" width="8" height="68" rx="4" fill="url(#headerGrad)"/>
+  <text x="58" y="138" class="box-title">CLI Dispatcher (src/main.cpp)</text>
+  <text x="58" y="160" class="box-sub">init | status | add | commit | log | show | diff | checkout</text>
+
+  <rect x="484" y="112" width="440" height="68" rx="10" fill="#161b22" stroke="#388bfd" stroke-width="1.5"/>
+  <rect x="484" y="112" width="8" height="68" rx="4" fill="url(#headerGrad)"/>
+  <text x="506" y="138" class="box-title">TTY-Aware UI Formatter (ui.hpp / ui.cpp)</text>
+  <text x="506" y="160" class="box-sub">Auto isatty() + NO_COLOR detection, graph &amp; status badges</text>
+
+  <!-- Arrows down -->
+  <line x1="246" y1="180" x2="246" y2="216" stroke="#8b949e" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <line x1="704" y1="180" x2="704" y2="216" stroke="#8b949e" stroke-width="1.6" marker-end="url(#arrow)"/>
+
+  <!-- Layer 2: Repository & Domain Engines -->
+  <text x="36" y="210" class="sec-label">2. Repository Controller &amp; Core Engines</text>
+  <rect x="36" y="220" width="286" height="84" rx="10" fill="#161b22" stroke="#2ea043" stroke-width="1.5"/>
+  <rect x="36" y="220" width="8" height="84" rx="4" fill="url(#coreGrad)"/>
+  <text x="58" y="246" class="box-title">Repository (repository.hpp)</text>
+  <text x="58" y="268" class="box-sub">Plumbing &amp; porcelain orchestration</text>
+  <text x="58" y="286" class="box-sub">HEAD, refs/heads/master, checkout</text>
+
+  <rect x="338" y="220" width="284" height="84" rx="10" fill="#161b22" stroke="#2ea043" stroke-width="1.5"/>
+  <rect x="338" y="220" width="8" height="84" rx="4" fill="url(#coreGrad)"/>
+  <text x="360" y="246" class="box-title">Staging Index (index.hpp)</text>
+  <text x="360" y="268" class="box-sub">.mygit/index path -&gt; blob SHA-1</text>
+  <text x="360" y="286" class="box-sub">HEAD vs Index vs Working Tree</text>
+
+  <rect x="638" y="220" width="286" height="84" rx="10" fill="#161b22" stroke="#2ea043" stroke-width="1.5"/>
+  <rect x="638" y="220" width="8" height="84" rx="4" fill="url(#coreGrad)"/>
+  <text x="660" y="246" class="box-title">Unified Diff Engine (diff.hpp)</text>
+  <text x="660" y="268" class="box-sub">LCS dynamic programming edit script</text>
+  <text x="660" y="286" class="box-sub">Context-grouped @@ hunks</text>
+
+  <!-- Arrows down to Storage Layer -->
+  <line x1="179" y1="304" x2="179" y2="344" stroke="#8b949e" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <line x1="480" y1="304" x2="480" y2="344" stroke="#8b949e" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <line x1="781" y1="304" x2="781" y2="344" stroke="#8b949e" stroke-width="1.6" marker-end="url(#arrow)"/>
+
+  <!-- Layer 3: Object Store & Primitives -->
+  <text x="36" y="338" class="sec-label">3. Content-Addressable Object Database &amp; Systems Primitives</text>
+  <rect x="36" y="348" width="286" height="136" rx="10" fill="#161b22" stroke="#a371f7" stroke-width="1.5"/>
+  <rect x="36" y="348" width="8" height="136" rx="4" fill="url(#storeGrad)"/>
+  <text x="58" y="374" class="box-title">ObjectStore (object_store.hpp)</text>
+  <text x="58" y="396" class="box-sub">Format: &lt;type&gt; &lt;size&gt;\0&lt;data&gt;</text>
+  <text x="58" y="416" class="box-sub">Path: .mygit/objects/&lt;2&gt;/&lt;38&gt;</text>
+  <text x="58" y="436" class="box-sub">Short-hash prefix resolution (&gt;=4)</text>
+  <rect x="58" y="448" width="66" height="22" rx="6" fill="#238636"/>
+  <text x="77" y="463" class="pill">blob</text>
+  <rect x="132" y="448" width="66" height="22" rx="6" fill="#1f6feb"/>
+  <text x="151" y="463" class="pill">tree</text>
+  <rect x="206" y="448" width="82" height="22" rx="6" fill="#8957e5"/>
+  <text x="224" y="463" class="pill">commit</text>
+
+  <rect x="338" y="348" width="284" height="136" rx="10" fill="#161b22" stroke="#a371f7" stroke-width="1.5"/>
+  <rect x="338" y="348" width="8" height="136" rx="4" fill="url(#storeGrad)"/>
+  <text x="360" y="374" class="box-title">Crypto &amp; Compression</text>
+  <text x="360" y="400" class="box-sub">• sha1.hpp — RFC 3174 SHA-1</text>
+  <text x="360" y="422" class="box-sub">  Git-compatible 40-char hex digests</text>
+  <text x="360" y="448" class="box-sub">• compression.hpp — zlib stream</text>
+  <text x="360" y="470" class="box-sub">  deflate / inflate with integrity check</text>
+
+  <rect x="638" y="348" width="286" height="136" rx="10" fill="#161b22" stroke="#a371f7" stroke-width="1.5"/>
+  <rect x="638" y="348" width="8" height="136" rx="4" fill="url(#storeGrad)"/>
+  <text x="660" y="374" class="box-title">Filesystem Utilities (fs_utils.hpp)</text>
+  <text x="660" y="400" class="box-sub">• std::filesystem portable I/O</text>
+  <text x="660" y="422" class="box-sub">• POSIX relative path normalization</text>
+  <text x="660" y="444" class="box-sub">• .mygitignore wildcard glob rules</text>
+  <text x="660" y="466" class="box-sub">• Thread-safe localtime_r timestamps</text>
+</svg>
